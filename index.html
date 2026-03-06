@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Todo List App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-text">
+        <h1>Hello, Jack,</h1>
+        <p>You have work today</p>
+      </div>
+      <div class="header-icons">
+        <button class="icon-btn" aria-label="Notifications"><i class="fa-regular fa-bell"></i></button>
+        <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+        <button class="icon-btn" aria-label="Menu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+    </header>
+
+    <!-- Summary Cards -->
+    <section class="summary-cards">
+      <div class="card blue">
+        <h3>Today</h3>
+        <span class="count">6</span>
+      </div>
+      <div class="card yellow">
+        <h3>Scheduled</h3>
+        <span class="count">5</span>
+      </div>
+      <div class="card blue">
+        <h3>All</h3>
+        <span class="count">14</span>
+      </div>
+      <div class="card yellow">
+        <h3>Overdue</h3>
+        <span class="count">3</span>
+      </div>
+    </section>
+
+    <!-- Task List -->
+    <section class="task-list-section">
+      <div class="section-header">
+        <h2>Tasks</h2>
+        <div class="controls-container">
+          <input type="text" id="searchInput" placeholder="Search tasks..." class="task-input search-input"
+            autocomplete="off">
+          <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="incomplete">Pending</button>
+            <button class="filter-btn" data-filter="complete">Completed</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="task-list" id="taskList">
+        <!-- Task items will be injected by JavaScript -->
+      </ul>
+    </section>
+
+    <!-- Floating Add Button -->
+    <button class="add-task-btn" id="addTaskBtn" aria-label="Add Task">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <!-- Mock Add Task Modal -->
+    <div class="modal-overlay" id="taskModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>Create New Task</h3>
+          <button class="close-btn" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="newTaskTitle" placeholder="Task title (e.g., Call client)" class="task-input">
+          <input type="date" id="newTaskDate" class="task-input" title="Due Date">
+          <select id="newTaskCategory" class="task-input" title="Category">
+            <option value="Grocery">Grocery</option>
+            <option value="Educational">Educational</option>
+            <option value="Home Related">Home Related</option>
+            <option value="Work Related" selected>Work Related</option>
+            <option value="Mandatory Work">Mandatory Work</option>
+            <option value="Personal Notes">Personal Notes</option>
+          </select>
+          <select id="newTaskPriority" class="task-input" title="Priority">
+            <option value="Low">Low Priority</option>
+            <option value="Medium" selected>Medium Priority</option>
+            <option value="High">High Priority</option>
+          </select>
+          <div id="subtasksContainer" class="subtasks-container">
+            <div class="subtasks-header">
+              <h4>Subtasks</h4>
+              <button class="add-subtask-btn" id="addSubtaskBtn" aria-label="Add Subtask"><i
+                  class="fa-solid fa-plus"></i></button>
+            </div>
+            <ul id="subtasksList" class="subtasks-edit-list">
+              <!-- Inputs added dynamically -->
+            </ul>
+          </div>
+          <button class="primary-btn" id="saveTaskBtn">Save Task</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
